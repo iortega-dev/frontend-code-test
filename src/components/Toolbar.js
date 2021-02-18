@@ -1,7 +1,5 @@
 import { observer } from 'mobx-react';
 import React from 'react';
-import uuid from 'uuid';
-import getRandomColor from '../utils/getRandomColor';
 
 function Toolbar(props) {
 	return (
