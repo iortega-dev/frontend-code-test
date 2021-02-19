@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { observer } from "mobx-react";
+import interact from 'interactjs'
 
-function BoxDraggable(props) {
+import { dragMoveListener } from "../utils/dragMoveListener";
+
+const BoxDraggable = React.forwardRef((props, ref) => {
+
+  useEffect(() => {
+		interact(ref.current).draggable({
+			modifiers: [
+				interact.modifiers.restrictRect({
+					restriction: 'parent',
+					endOnly: true,
+				}),
+			],
+			listeners: {
+				move: dragMoveListener,
+			},
+		});
+	}, [ref]);
+
   return (
     <div
+      ref={ref}
       id={props.id}
       className={`box pointer ${props.box.selected ? 'selected' : ''}`}
       onClick={props.box.toggleSelected}
@@ -17,6 +36,6 @@ function BoxDraggable(props) {
       {props.children}
     </div>
   );
-}
+});
 
 export default observer(BoxDraggable);
