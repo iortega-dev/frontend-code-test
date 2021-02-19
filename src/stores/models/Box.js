@@ -14,6 +14,9 @@ const BoxModel = types
   .actions(self => ({
     toggleSelected() {
       self.selected = !self.selected
+    },
+    changeColor(value) {
+      self.color = value
     }
   }));
 
