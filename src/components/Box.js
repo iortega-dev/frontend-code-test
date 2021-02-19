@@ -3,9 +3,8 @@ import { observer } from "mobx-react";
 import BoxDraggable from "./BoxDraggable";
 
 function Box(props) {
-  const ref = React.createRef();
   return (
-    <BoxDraggable ref={ref} {...props}>
+    <BoxDraggable {...props}>
       <div>Box</div>
     </BoxDraggable>
   );

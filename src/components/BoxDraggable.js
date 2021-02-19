@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { observer } from "mobx-react";
 import interact from 'interactjs'
 
 import { dragMoveListener } from "../utils/dragMoveListener";
 
-const BoxDraggable = React.forwardRef((props, ref) => {
+const BoxDraggable = (props) => {
+
+  const ref = useRef();
 
   useEffect(() => {
 		interact(ref.current).draggable({
@@ -36,6 +38,6 @@ const BoxDraggable = React.forwardRef((props, ref) => {
       {props.children}
     </div>
   );
-});
+};
 
 export default observer(BoxDraggable);
