@@ -22,7 +22,11 @@ const MainStore = types
       }
 		};
 	})
-	.views((self) => ({}));
+	.views((self) => ({
+		get selectedBox() {
+			return self.boxes.find(b => b.selected)
+		}
+	}));
 
 const store = MainStore.create();
 
