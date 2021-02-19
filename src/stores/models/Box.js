@@ -5,11 +5,16 @@ const BoxModel = types
     id: types.identifier,
     width: 200,
     height: 100,
-    color: "#FFF000",
-    left: 200,
-    top: 100
+    color: types.string,
+    left: types.number,
+    top: types.number,
+    selected: types.optional(types.boolean, false)
   })
   .views(self => ({}))
-  .actions(self => ({}));
+  .actions(self => ({
+    toggleSelected() {
+      self.selected = !self.selected
+    }
+  }));
 
 export default BoxModel;
