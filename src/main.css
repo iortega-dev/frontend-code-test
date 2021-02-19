@@ -26,6 +26,7 @@ html,
 }
 
 .box {
+  box-sizing: border-box;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -41,4 +42,12 @@ html,
 
 .toolbar span {
   color: white;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.selected {
+  border: 2px dashed black;
 }
