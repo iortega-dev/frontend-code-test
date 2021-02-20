@@ -39,6 +39,13 @@ html,
   left: 0;
   display: flex;
 }
+.toolbar-history {
+  position: fixed;
+  top: 30px;
+  left: 0;
+  display: flex;
+}
+
 
 .toolbar span {
   color: white;
