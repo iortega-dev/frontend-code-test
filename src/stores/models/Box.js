@@ -1,4 +1,4 @@
-import { types } from "mobx-state-tree";
+import { types, getRoot, hasParent } from "mobx-state-tree";
 
 const BoxModel = types
   .model("Box", {
@@ -13,6 +13,7 @@ const BoxModel = types
   .views(self => ({}))
   .actions(self => ({
     toggleSelected() {
+      getRoot(self).unselectAll();
       self.selected = !self.selected
     },
     changeColor(value) {
