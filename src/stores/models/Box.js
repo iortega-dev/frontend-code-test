@@ -1,4 +1,4 @@
-import { types, getRoot, hasParent } from "mobx-state-tree";
+import { types } from "mobx-state-tree";
 
 const BoxModel = types
   .model("Box", {
