@@ -20,14 +20,11 @@ const MainStore = types
       removeBox() {
         self.boxes.pop();
       },
-			unselectAll() {
-				self.boxes.forEach((box) => box.selected = false)
-			}
 		};
 	})
 	.views((self) => ({
-		get selectedBox() {
-			return self.boxes.find(b => b.selected)
+		get selectedBoxes() {
+			return self.boxes.filter(b => b.selected)
 		}
 	}));
 

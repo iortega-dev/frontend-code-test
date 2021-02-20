@@ -13,7 +13,6 @@ const BoxModel = types
   .views(self => ({}))
   .actions(self => ({
     toggleSelected() {
-      getRoot(self).unselectAll();
       self.selected = !self.selected
     },
     changeColor(value) {
