@@ -14,7 +14,7 @@ function Toolbar(props) {
 				}
 				onChange={(event) => props.store.selectedBox.changeColor(event.target.value)}
 			/>
-			<span>{props.store.selectedBox ? `Selected Box with color ${props.store.selectedBox?.color}` : 'No box selected'}</span>
+			<span>{props.store.selectedBoxes.length > 0 ? `Selected ${props.store.selectedBoxes?.length} boxes` : 'No boxes selected'}</span>
 		</div>
 	);
 }
