@@ -10,7 +10,7 @@ const BoxDraggable = (props) => {
 	const dragMoveListener = useCallback(
 		(event) => {
 			// Move Selected Boxes
-			const selectedBoxes = props.store.selectedBoxes;
+			const selectedBoxes = props.selectedBoxes;
 			selectedBoxes.forEach((box) => {
 				var x = (parseFloat(box.left) || 0) + event.dx;
 				var y = (parseFloat(box.top) || 0) + event.dy;
@@ -19,7 +19,7 @@ const BoxDraggable = (props) => {
 				box.setTop(y);
 			});
 		},
-		[props.store.selectedBoxes]
+		[props.selectedBoxes]
 	);
 
 	// Drag element ends listener
