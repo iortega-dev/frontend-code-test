@@ -19,7 +19,10 @@ const MainStore = types
 			},
       removeBox() {
         self.boxes.pop();
-      }
+      },
+			unselectAll() {
+				self.boxes.forEach((box) => box.selected = false)
+			}
 		};
 	})
 	.views((self) => ({
