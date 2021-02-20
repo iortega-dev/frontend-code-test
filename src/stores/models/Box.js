@@ -19,11 +19,11 @@ const BoxModel = types
     changeColor(value) {
       self.color = value
     },
-    setLeft (value) {
-      undoManager.withoutUndo(() => self.left = value) 
-    },
-    setTop (value) {
-      undoManager.withoutUndo(() => self.top = value)
+    move(x, y) {
+      undoManager.withoutUndo(() => {
+        self.left = x
+        self.top = y
+      })
     }
   }));
 

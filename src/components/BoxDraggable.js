@@ -15,8 +15,7 @@ const BoxDraggable = (props) => {
 				var x = (parseFloat(box.left) || 0) + event.dx;
 				var y = (parseFloat(box.top) || 0) + event.dy;
 				// update the position attributes
-				box.setLeft(x);
-				box.setTop(y);
+				box.move(x, y)
 			});
 		},
 		[props.selectedBoxes]
