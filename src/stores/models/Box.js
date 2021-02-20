@@ -1,4 +1,5 @@
 import { types } from "mobx-state-tree";
+import { undoManager } from '../MainStore'
 
 const BoxModel = types
   .model("Box", {
@@ -19,10 +20,10 @@ const BoxModel = types
       self.color = value
     },
     setLeft (value) {
-      self.left = value
+      undoManager.withoutUndo(() => self.left = value) 
     },
     setTop (value) {
-      self.top = value
+      undoManager.withoutUndo(() => self.top = value)
     }
   }));
 
