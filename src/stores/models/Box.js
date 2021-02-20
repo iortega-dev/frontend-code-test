@@ -17,6 +17,12 @@ const BoxModel = types
     },
     changeColor(value) {
       self.color = value
+    },
+    setLeft (value) {
+      self.left = value
+    },
+    setTop (value) {
+      self.top = value
     }
   }));
 
