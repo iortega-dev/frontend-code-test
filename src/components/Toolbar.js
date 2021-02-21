@@ -17,6 +17,7 @@ function Toolbar(props) {
 				<button onClick={() => props.store.addBox()}>Add Box</button>
 				<button onClick={() => props.store.removeBox()}>Remove Box</button>
 				<input
+					data-testid="colorpicker"
 					type="color"
 					disabled={!props.store.selectedBoxes.length > 0}
 					value={
