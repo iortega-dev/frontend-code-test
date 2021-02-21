@@ -51,14 +51,14 @@ const BoxDraggable = (props) => {
 	return (
 		<div
 			ref={ref}
-			id={props.id}
+			id={props.box.id}
 			className={`box pointer ${props.box.selected ? 'selected' : ''}`}
 			onClick={props.box.toggleSelected}
 			style={{
-				backgroundColor: props.color,
-				width: props.width,
-				height: props.height,
-				transform: `translate(${props.left}px, ${props.top}px)`,
+				backgroundColor: props.box.color,
+				width: props.box.width,
+				height: props.box.height,
+				transform: `translate(${props.box.left}px, ${props.box.top}px)`,
 			}}
 		>
 			{props.children}

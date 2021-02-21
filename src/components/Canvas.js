@@ -8,13 +8,7 @@ function Canvas({ store }) {
     <div className="canva">
       {store.boxes.map((box, index) => (
         <Box
-          id={box.id}
           key={index}
-          color={box.color}
-          left={box.left}
-          top={box.top}
-          width={box.width}
-          height={box.height}
           box={box}
           selectedBoxes={store.selectedBoxes}
         />
