@@ -52,6 +52,7 @@ const BoxDraggable = (props) => {
 		<div
 			ref={ref}
 			id={props.box.id}
+			data-testid={props.box.id}
 			className={`box pointer ${props.box.selected ? 'selected' : ''}`}
 			onClick={props.box.toggleSelected}
 			style={{
