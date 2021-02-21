@@ -34,8 +34,8 @@ function Toolbar(props) {
 				</span>
 			</div>
 			<div className="toolbar-history">
-				<button onClick={() => undo()}>Undo</button>
-				<button onClick={() => redo()}>Redo</button>
+				<button disabled={!undoManager.canUndo}  onClick={() => undo()}>Undo</button>
+				<button disabled={!undoManager.canRedo} onClick={() => redo()}>Redo</button>
 			</div>
 		</>
 	);
