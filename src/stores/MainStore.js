@@ -1,30 +1,43 @@
-import { types } from "mobx-state-tree";
-import uuid from "uuid/v4";
-import BoxModel from "./models/Box";
-import getRandomColor from "../utils/getRandomColor";
+import { types } from 'mobx-state-tree';
+import uuid from 'uuid/v4';
+import { UndoManager } from "mst-middlewares"
 
-const MainStore = types
-  .model("MainStore", {
-    boxes: types.array(BoxModel)
-  })
-  .actions(self => {
-    return {
-      addBox(box) {
-        self.boxes.push(box);
-      }
-    };
-  })
-  .views(self => ({}));
+import BoxModel from './models/Box';
 
+import getRandomColor from '../utils/getRandomColor';
+
+export const MainStore = types
+	.model('MainStore', {
+		boxes: types.array(BoxModel),
+	})
+	.actions((self) => {
+		setUndoManager(self)
+		return {
+			addBox() {
+				self.boxes.push({
+					id: uuid(),
+					color: getRandomColor(),
+					left: 0,
+					top: 0,
+				});
+			},
+      removeBox() {
+        self.boxes.pop();
+      },
+		};
+	})
+	.views((self) => ({
+		get selectedBoxes() {
+			return self.boxes.filter(b => b.selected)
+		}
+	}));
+
+export let undoManager = {}
+export const setUndoManager = (targetStore) => {
+	undoManager = UndoManager.create({}, { targetStore })
+}
 const store = MainStore.create();
 
-const box1 = BoxModel.create({
-  id: uuid(),
-  color: getRandomColor(),
-  left: 0,
-  top: 0
-});
-
-store.addBox(box1);
+store.addBox()
 
 export default store;

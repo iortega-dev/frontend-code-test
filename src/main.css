@@ -26,6 +26,7 @@ html,
 }
 
 .box {
+  box-sizing: border-box;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -38,7 +39,22 @@ html,
   left: 0;
   display: flex;
 }
+.toolbar-history {
+  position: fixed;
+  top: 30px;
+  left: 0;
+  display: flex;
+}
+
 
 .toolbar span {
   color: white;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.selected {
+  border: 2px dashed black;
 }
