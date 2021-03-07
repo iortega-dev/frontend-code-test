@@ -1,4 +1,4 @@
-import { types } from 'mobx-state-tree';
+import { onSnapshot, types } from 'mobx-state-tree';
 import uuid from 'uuid/v4';
 import { UndoManager } from "mst-middlewares"
 
@@ -36,8 +36,19 @@ export let undoManager = {}
 export const setUndoManager = (targetStore) => {
 	undoManager = UndoManager.create({}, { targetStore })
 }
-const store = MainStore.create();
 
-store.addBox()
+let store = MainStore.create();
+
+const data = localStorage.getItem('rootState');
+if (data) {
+  const json = JSON.parse(data);
+  if (MainStore.is(json)) {
+    store = MainStore.create(json);
+  }
+}
+
+onSnapshot(store, snapshot => {
+  localStorage.setItem('rootState', JSON.stringify(snapshot));
+});
 
 export default store;
